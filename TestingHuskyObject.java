@@ -22,7 +22,7 @@ public class TestingHuskyObject extends Canvas{
         try {
             while (true) {
                 canvas.repaint();
-                Thread.sleep(1000);
+                Thread.sleep(10);
             }
         } catch(Exception e) {};
     }
