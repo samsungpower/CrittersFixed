@@ -2,6 +2,9 @@ import java.util.Random;
 
 public class Husky {
     //Instantiate variables
+    int x = 200;
+    int y = 200;
+
 
     public static int genPosNeg() {
         Random r = new Random();
@@ -12,21 +15,37 @@ public class Husky {
         return dirVector;
     }
 
-    static int[] getCords(int speed, int width, int height) {
-        int x = width/2;
-        int y = height/2;
+    int[] getCords(int speed, int generation, int width, int height) {
+
         Random rand = new Random();
 
-        int dirVector = genPosNeg();
-        int randomIncr = (int)(rand.nextDouble() * dirVector * speed);
-        x += randomIncr;
+        if(generation == 0) {
+            int dirVector = genPosNeg();
+            int randomIncr = (int) (rand.nextDouble() * dirVector * speed);
+            x += randomIncr;
 
-        dirVector = genPosNeg();
-        randomIncr = (int)(rand.nextDouble() * dirVector * speed);
-        y += randomIncr;
+            dirVector = genPosNeg();
+            randomIncr = (int) (rand.nextDouble() * dirVector * speed);
+            y += randomIncr;
 
-        int[] xy = new int[]{x,y};
+            int[] xy = new int[]{x, y}; //pack coordinates into an array to send to the constructor
 
-        return xy;
+            return xy;
+        } else {
+
+            int dirVector = genPosNeg();
+            int randomIncr = (int) (rand.nextDouble() * dirVector * speed);
+            x += randomIncr;
+
+            dirVector = genPosNeg();
+            randomIncr = (int) (rand.nextDouble() * dirVector * speed);
+            y += randomIncr;
+
+
+
+            int[] xy = new int[]{x, y}; //pack coordinates into an array to send to the constructor
+            return xy;
+        }
+
     }
 }
